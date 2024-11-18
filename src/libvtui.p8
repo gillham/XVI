@@ -3,7 +3,6 @@
 ;
 
 %import lib
-;%import lib_debug
 
 vtui {
     ; library size in pages
@@ -213,10 +212,6 @@ vtui {
         }}
     }
 
-
-
-
-
     ; stub for relocatable library version of VTUI
     ; NOTE: returns string length
     asmsub input_str(uword buffer @R0, ubyte buflen @Y, ubyte colors @X) clobbers (A) -> ubyte @Y {
@@ -262,7 +257,8 @@ vtui {
         }}
     }
 
-    ; -- helper function to do string length counting for you internally, and turn the convertchars flag into a boolean again
+    ; helper function to do string length counting for you internally
+    ; and turn the convertchars flag into a boolean again
     asmsub print_str2(str txtstring @R0, ubyte colors @X, bool convertchars @Pc) clobbers(A, Y) {
         %asm {{
             lda  #0
